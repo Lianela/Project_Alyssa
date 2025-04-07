@@ -51,21 +51,26 @@ Using Llama 4 from Meta it helps to balance this, while better AI exist like Gro
 much better quality, their API's could be expensive, but Llama offers a free and stable LLM and tuning it to make roleplay better it's the perfect example to balance price,
 power and usage.
 
-· · ─────────────────────────────────────────────────────────────────────────────── ·𖥸· ─────────────────────────────────────────────────────────────────────────────── · ·
+· · ─────── ·𖥸· ─────── · ·
 
 Q/A:
 Q: What about Gemini, DeepSeek, Claude or Quasar?
 R: While Gemini, DeepSeek, Claude and Quasar offers free alternatives using OpenRouter AI, their LLM aren't able to reach expectations, from unstable systems going to
 problems in answers, to failures and crashes without even able to start the conversation, Google with Gemini 2.5 Pro it lacks of stability, and their AI is well know for
 potential failures and constant errors.
+
 ───  ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ⋅  ───
+
 Q: Wizard, Mistral and RoleplAI are good for Roleplay, why not using them?
 R: Wizard lacks of understanding and this could kill the memories and even destroying by itself, Mistral requires extreme fine tuning and limitations, which besides being
 a lot of time for development, it's useless to long term, and RoleplAI have extremely low tokens, being limited too frequently.
+
 ───  ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ⋅  ───
+
 Q: But why Llama?
 R: Easy tuning, it was easy to configure and from what I've been using it proves the best understanding possible, defining good scenarios and extremely quick in response
-times, aside from being free, it was the better option, unless I be able to get an API Key for Grok3, ChatGPT-o4-mini or Gemini 2.5, I will stick to Llama 3 Maverick
+times, aside from being free, it was the better option, unless I be able to get an API Key for Grok3, ChatGPT-o4-mini or Gemini 2.5, I will stick to Llama 3 Maverick.
+
 ───  ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ⋅  ───
 
 I will keep updating this project, it's been a pleasure to use apps for roleplay like Dippy AI, but until someone decides to take a new step, nothing will change.
