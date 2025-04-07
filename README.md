@@ -1,6 +1,7 @@
 Basically it's just a shit rn, it runs on cmd cuz i'm too lazy to create an UI rn
 
 Roadmap (yes, i will not do a image or smthng):
+
 ✦•······················•✦•······················•✦
 
 > 7/4/2025:
