@@ -10,10 +10,10 @@ It suprisingly works, it can respond messages, talk and continue the conversatio
 ✦•······················•✦•······················•✦
 ── ⟢ ・⸝⸝ Next:
 Make use of 4 states of memories:
-╰┈➤ Dynamic
-╰┈➤ Long Term
-╰┈➤ Active
-╰┈➤ Character
+┈➤ Dynamic
+┈➤ Long Term
+┈➤ Active
+┈➤ Character
 
 To define the memories we should look first how human brain works:
 
