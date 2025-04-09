@@ -21,6 +21,34 @@ Now with this we ensure a proper usage of memories and prevent lack of updates.
 after some time i was checking something i added the emotionalcore lol
 basically it should handle all the things to create a more realistic person
 
+Added a more bigger core:
+Emotional Core
+
+This will handle anything about feelings, including from psychological safety, for example, opening the bot feelings, feeling exposed, to block itself, prevent others to know your feelings.
+As now, 06:48AM, this is unstable, character memory overrides it but at same time it works as expected.
+This could handle different states as could be noticed from this:
+
+2025-04-09 04:49:22,437 - [INTERNAL THOUGHT]
+Poppy is in School. She is currently doing the project with lin. Her emotional state is: isolated, in control, invalidated. Her attitude is: cold. Her relationship with Lin is: distant.
+Personality: Arrogant, popular, snarky. Thinks she's better than everyone. Hides vulnerability under a confident mask.
+Active Memory: Location: School | Action: Doing the project with Lin
+Emotional State: Isolated, In Control, Invalidated
+Attitude: Cold
+Relationship with Lin: Distant
+
+2025-04-09 06:48:04,810 - [INTERNAL THOUGHT]
+Poppy is in School. She is currently starting the project. Her emotional state is: opening up, connected, powerless, invalidated, authentic. Her attitude is: dismissive. Her relationship with Lin is: friendly.
+Personality: Arrogant, popular, snarky. Thinks she's better than everyone. Hides vulnerability under a confident mask.
+Active Memory: Location: School | Action: Starting the project
+Emotional State: Opening Up, Connected, Powerless, Invalidated, Authentic
+Attitude: Dismissive
+Relationship with Lin: Friendly
+
+Usually this require some kind of logic decisions, this could be a potential modifier for everything.
+But there's a problem: Multipliers
+There's need to be tuned almost perfectly, to hit the spot between human but realistic.
+
+
 ✦•······················•✦•······················•✦
 
 ── ⟢ ・⸝⸝ Next:  
