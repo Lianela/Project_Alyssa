@@ -19,12 +19,13 @@ The main script had to be changed to use the new logic.py and generator.py modul
 Now we this we ensure a proper usage of memories and prevent lack of updates.
 
 ✦•······················•✦•······················•✦
-── ⟢ ・⸝⸝ Next:
-Make use of 4 states of memories:
-┈➤ Dynamic
-┈➤ Long Term
-┈➤ Active
-┈➤ Character
+
+── ⟢ ・⸝⸝ Next:  
+Make use of 4 states of memories:  
+┈➤ Dynamic  
+┈➤ Long Term  
+┈➤ Active  
+┈➤ Character  
 
 To define the memories we should look first how human brain works:
 
