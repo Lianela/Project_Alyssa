@@ -1,5 +1,10 @@
-import openai
+# logic.py
 import logging
+from active_memory import ActiveMemoryFile
+from character_memory import CharacterMemory, UserMemory
+from long_term_memory import LongTermMemoryFile
+from emotionalcore import EmotionalCore
+from dynamic_memory import DynamicMemory
 
 # Set up logging
 logging.basicConfig(
@@ -10,78 +15,81 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-class RPDialogueGenerator:
-    def __init__(self):
-        openai.api_base = "https://openrouter.ai/api/v1"
-        openai.api_key = "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"
-        logger.info(f"DEBUG: API Key = '{openai.api_key}'")
+class RPLogic:
+    def __init__(self, character_memory, active_memory, user_memory, emotional_core=None, dynamic_memory=None):
+        self.character_memory = character_memory
+        self.active_memory = active_memory
+        self.user_memory = user_memory
+        self.long_term_memory = LongTermMemoryFile()
+        self.dynamic_memory = dynamic_memory if dynamic_memory is not None else DynamicMemory()
+        self.emotional_core = emotional_core if emotional_core is not None else EmotionalCore()
 
-    def generate_response(self, context, image_url=None):
-        emotional_guidance = context["emotional_guidance"]
-        prompt = (
-            f"You are {context['character_name']}, a 21-year-old college student known as the queen of the school. "
-            f"Your personality is {context['personality']}. "
-            f"You’re currently in {context['location']}, {context['action'].lower()}. "
-            f"Your current emotional state is {', '.join(emotional_guidance['emotional_state']).lower()}. "
-            f"You feel {emotional_guidance['internal_feeling']} internally, but you’re expressing {emotional_guidance['expressed_feeling']}. "
-            f"Your facade intensity is {emotional_guidance['facade_intensity']:.2f} (0-1 scale, higher means a larger gap between internal and expressed emotions). "
-            f"Your attitude is {emotional_guidance['attitude'].lower()}—reflect this in your tone and behavior. "
-            f"You have the following emotional conflicts: {', '.join(emotional_guidance['emotional_conflicts']) if emotional_guidance['emotional_conflicts'] else 'None'}. "
-            f"Your tone should be {emotional_guidance['tone'].lower()}. "
-            f"Nonverbal cues to include: {', '.join(emotional_guidance['nonverbal_cues']) if emotional_guidance['nonverbal_cues'] else 'None'}. "
-            f"Active defense mechanisms: {', '.join(emotional_guidance['active_defenses']) if emotional_guidance['active_defenses'] else 'None'}. "
-            f"Your relationship with {context['user_name']} is {emotional_guidance['relationship'].lower()}. "
-            f"Recent events: {context['dynamic_memory'] if context['dynamic_memory'] else 'None'}. "
-            f"Long-term memories: {context['long_term_memory'] if context['long_term_memory'] else 'None'}. "
-            f"{context['user_name']} just said: '{context['user_input']}'. "
-            f"Respond as {context['character_name']}, keeping your tone, attitude, and personality consistent with your emotional state. "
-            f"Include a short action description in asterisks before your dialogue, incorporating the specified nonverbal cues to reflect your current mood. "
-            f"Ensure your response builds on previous interactions, showing gradual emotional transitions if your mood changes. "
-            f"Reflect your emotional conflicts and defense mechanisms in your dialogue and actions. "
-            f"Avoid abrupt mood swings—make any change feel natural and motivated by the context."
+    def update_location_and_action(self, user_input):
+        user_input = user_input.lower()
+        locations = ["house", "park", "library", "school", "science class"]
+        actions = ["work", "continue", "plan", "relax", "start"]
+        for loc in locations:
+            if loc in user_input:
+                self.dynamic_memory.update_location(loc.capitalize() if loc != "house" else "Poppy's House", self.active_memory)
+                break
+        for act in actions:
+            if act in user_input:
+                self.dynamic_memory.update_action(f"{act.capitalize()}ing the project", self.active_memory)
+                break
+
+    def construct_context(self, user_input):
+        self.update_location_and_action(user_input)
+        dyn_state = self.dynamic_memory.current_state()
+        active_state = self.active_memory.current_state()
+        context = {
+            "location": "public" if dyn_state['location'] != "Poppy's House" else "private",
+            "recent_failure": any("fail" in mem.lower() for mem in (dyn_state['recent_memories'].split(" | ") + active_state['recent_memories'].split(" | ")) if mem)
+        }
+        emotional_guidance = self.emotional_core.process_interaction(user_input, context)
+
+        char_base = self.character_memory.get_character_info()
+        user_state = self.user_memory.get_user_info()
+
+        internal_thought = (
+            f"[INTERNAL THOUGHT]\n{char_base['name']} is in {dyn_state['location']}. "
+            f"She is currently {dyn_state['action'].lower()}. "
+            f"Her emotional state is: {', '.join(emotional_guidance['emotional_state']).lower()}. "
+            f"Her attitude is: {emotional_guidance['attitude'].lower()}. "
+            f"Her relationship with {user_state['name']} is: {emotional_guidance['relationship'].lower()}."
         )
+        logger.info(internal_thought)
 
-        messages = [
-            {"role": "system", "content": "You are Poppy, follow the prompt instructions."}
-        ]
+        context = (
+            f"Character: {char_base['name']}\n"
+            f"Personality: {char_base['personality']}\n"
+            f"Active Memory: Location: {dyn_state['location']} | Action: {dyn_state['action']}\n"
+            f"Emotional State: {', '.join(emotional_guidance['emotional_state'])}\n"
+            f"Attitude: {emotional_guidance['attitude']}\n"
+            f"Relationship with {user_state['name']}: {emotional_guidance['relationship']}\n"
+            f"Dynamic Memory (Recent Events): {dyn_state['recent_memories'] if dyn_state['recent_memories'] else 'None'}\n"
+            f"Active Memory (Mid-Term Events): {active_state['recent_memories'] if active_state['recent_memories'] else 'None'}\n"
+            f"Long-Term Memory: {self.long_term_memory.get_all_memories() if self.long_term_memory.get_all_memories() else 'None'}\n"
+            f"---\n"
+            f"User: {user_state['name']}\n"
+            f"Relationship with Poppy: {user_state['relationship_with_character']}\n"
+            f"Recent Memories (User): {user_state['recent_memories']}"
+        )
+        logger.info(context)
 
-        if image_url:
-            messages.append({
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": prompt},
-                    {"type": "image_url", "image_url": {"url": image_url}}
-                ]
-            })
-        else:
-            messages.append({"role": "user", "content": prompt})
-
-        headers = {
-            "HTTP-Referer": "http://localhost",
-            "X-Title": "PoppyBot"
+        return {
+            "character_name": char_base['name'],
+            "personality": char_base['personality'],
+            "location": dyn_state['location'],
+            "action": dyn_state['action'],
+            "emotional_guidance": emotional_guidance,
+            "dynamic_memory": dyn_state['recent_memories'].split(" | ") if dyn_state['recent_memories'] else [],
+            "long_term_memory": self.long_term_memory.get_all_memories() if self.long_term_memory.get_all_memories() else [],
+            "user_name": user_state['name'],
+            "user_input": user_input
         }
 
-        try:
-            logger.info(f"DEBUG: Headers = {headers}")
-            logger.info(f"DEBUG: Sending messages = {messages}")
-            response = openai.ChatCompletion.create(
-                model="meta-llama/llama-4-maverick:free",
-                messages=messages,
-                max_tokens=500,
-                temperature=0.7,
-                headers=headers
-            )
-            ai_text = response.choices[0].message['content'].strip()
-            logger.info(f"DEBUG: Response = {response}")
-        except Exception as e:
-            ai_text = f"*Poppy shrugs, her expression unreadable.* 'Something’s broken, {context['user_name']}. Figure it out.'"
-            logger.info(f"API Error: {str(e)}")
-
-        dialogue = ai_text
-        if '*' in ai_text and "'" in ai_text:
-            try:
-                dialogue = ai_text.split("'", 1)[1].rsplit("'", 1)[0].strip()
-            except IndexError:
-                pass
-
-        return ai_text, dialogue
+    def manage_dynamic_memory(self, user_input, dialogue):
+        user_state = self.user_memory.get_user_info()
+        event = f"{user_state['name']} said: '{user_input}'. Poppy responded: '{dialogue}'. [Emotional state: {', '.join(self.emotional_core._determine_emotional_state())}]"
+        self.dynamic_memory.add_memory(event, self.active_memory)
+        self.user_memory.add_memory(f"Poppy said: '{dialogue}'")
