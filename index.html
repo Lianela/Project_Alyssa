@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoppyBot UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #e0e0e0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .divider {
+            width: 2px;
+            background: linear-gradient(180deg, #555, #333);
+        }
+
+        .chat-section, .right-section {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .chat-section {
+            background: #2a2a2a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        .message.bot {
+            background: #3a3a3a;
+            color: #e0e0e0;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user {
+            background: #007bff;
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message .timestamp {
+            font-size: 0.7em;
+            color: #888;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .message-input-bar {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #333;
+            border-top: 1px solid #444;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .message-input-bar input {
+            flex: 1;
+            padding: 10px 15px;
+            background: #444;
+            border: none;
+            border-radius: 20px;
+            color: #e0e0e0;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .message-input-bar input::placeholder {
+            color: #888;
+        }
+
+        .message-input-bar button {
+            background: #007bff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .message-input-bar button:hover {
+            background: #0056b3;
+        }
+
+        .message-input-bar button svg {
+            fill: #fff;
+            width: 20px;
+            height: 20px;
+        }
+
+        .right-section {
+            background: #252525;
+        }
+
+        /* Scrollbar Styling */
+        .chat-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-box::-webkit-scrollbar-track {
+            background: #333;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 4px;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb:hover {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-section">
+            <div class="chat-box">
+                <div class="message bot">
+                    Hey Lin, I saw your part of the project—it’s not terrible, I guess. *I say with a guarded tone.* But we need to step it up if we’re going to impress everyone.
+                    <span class="timestamp">10:32 AM</span>
+                </div>
+                <div class="message user">
+                    I’m sorry, Poppy… I’ve been struggling with antidepressants lately. *I take out my laptop.*
+                    <span class="timestamp">10:33 AM</span>
+                </div>
+                <div class="message bot">
+                    Antidepressants, huh? That’s quite a convenient excuse. *I glance at your laptop, my tone dismissive.* Let’s just focus on the project.
+                    <span class="timestamp">10:34 AM</span>
+                </div>
+            </div>
+            <div class="message-input-bar">
+                <input type="text" placeholder="Enter your message...">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="right-section">
+            <!-- Right side left empty for now -->
+        </div>
+    </div>
+</body>
+</html>
