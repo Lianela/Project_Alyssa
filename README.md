@@ -4,8 +4,19 @@ Roadmap (yes, i will not do a image or smthng):
 
 ✦•······················•✦•······················•✦
 
-> 7/4/2025:
+7/4/2025:
 It suprisingly works, it can respond messages, talk and continue the conversation, not lag at all, just a second of time for thinking, besides using Llama feels good to use it
+
+✦•······················•✦•······················•✦
+
+9/4/2025:
+rp_response.py has been divided, now it's two extra files, generator and logic:
+generator.py will take the context from logic and generate a response that feels human, with gradual mood transitions and emotional depth. It will use the emotional state, attitude, and memories to craft a response that builds on previous interactions and avoids abrupt mood swings.
+logic.py will handle the "brain" of (Bot, in this case, a one already pre defined) "Poppy", analyzing the context to determine her emotional state, attitude, and relationship with Lin. We’ll use a simple sentiment analysis approach to interpret user input and memories, combined with a state machine-like logic to manage Poppy’s emotional and attitudinal shifts.
+
+The main script had to be changed to use the new logic.py and generator.py modules, ensuring the roleplay loop integrates both components seamlessly.
+
+Now we this we ensure a proper usage of memories and prevent lack of updates.
 
 ✦•······················•✦•······················•✦
 ── ⟢ ・⸝⸝ Next:
