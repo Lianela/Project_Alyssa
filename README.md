@@ -16,7 +16,7 @@ logic.py will handle the "brain" of (Bot, in this case, a one already pre define
 
 The main script had to be changed to use the new logic.py and generator.py modules, ensuring the roleplay loop integrates both components seamlessly.
 
-Now we this we ensure a proper usage of memories and prevent lack of updates.
+Now with this we ensure a proper usage of memories and prevent lack of updates.
 
 ✦•······················•✦•······················•✦
 
