@@ -1,3 +1,4 @@
+# emotionalcore.py
 class EmotionalCore:
     def __init__(self):
         # Core emotional dimensions (using more nuanced dimensions than typical models)
@@ -90,8 +91,8 @@ class EmotionalCore:
         
         # Impact on vulnerability
         vulnerability_triggers = {
-            "increase": ["understand", "trust", "feel", "open", "sorry", "care"],
-            "decrease": ["whatever", "obviously", "stupid", "stop"]
+            "increase": ["understand", "trust", "feel", "open", "sorry", "care", "love", "not alone"],
+            "decrease": ["whatever", "obviously", "stupid", "stop", "annoying"]
         }
         for word in vulnerability_triggers["increase"]:
             if word in message_lower:
@@ -105,8 +106,8 @@ class EmotionalCore:
         
         # Impact on connection
         connection_triggers = {
-            "increase": ["together", "we", "us", "friend", "help"],
-            "decrease": ["alone", "yourself", "your problem"]
+            "increase": ["together", "we", "us", "friend", "help", "here for you"],
+            "decrease": ["alone", "yourself", "your problem", "leave"]
         }
         for word in connection_triggers["increase"]:
             if word in message_lower:
@@ -353,15 +354,20 @@ class EmotionalCore:
     def _evolve_personality(self, emotional_impact):
         """Gradually evolve personality based on emotional experiences"""
         # Significant emotional experiences can shift personality traits
+        # That's what I thought, higher values = less chance to develop personality...
         intensity = sum(abs(val) for val in emotional_impact.values())
         
         if intensity > 0.6:
             # High intensity experiences have more impact
-            change_factor = 0.02  # Small incremental changes
+            change_factor = 0.02  # Small incremental changes (First revision: Too small, does nothing)
+            # Even when talking about suicide, depression, self harm, it will not change, good because it doesn't
+            # trigger self care acts like IA usually do, bad because it could mean in harmful acts like
+            # minimizing too much acts like that, but I guess that's the point of Poppy after all...
             
             # Vulnerability experiences increase emotional awareness
             if abs(emotional_impact["vulnerability"]) > 0.3:
                 self.personality["emotional_awareness"] += change_factor * 0.5
+                # Adding a bigger change factor for deeper conversations could be interesting...
             
             # Connection experiences increase empathy
             if emotional_impact["connection"] > 0.2:
@@ -372,8 +378,15 @@ class EmotionalCore:
                 self.personality["fear_of_vulnerability"] -= change_factor
             
             # Validation experiences affect pride and self-worth
-            if emotional_impact["validation"] > 0.3:
+            if emotional_impact["validation"] < -0.3:
                 # Positive validation reinforces contingent self-worth
+                    # Negative validation can either increase defenses or lead to growth
+                if self.internal_emotions["psychological_safety"] > 0.6:  # Corrected line
+                    # In safe environment, can lead to growth
+                    self.personality["authenticity"] += change_factor
+                else:
+                    # In unsafe environment, reinforces defenses
+                    self.personality["pride"] += change_factor
                 self.unconscious_patterns["self_worth_contingency"] += change_factor
             elif emotional_impact["validation"] < -0.3:
                 # Negative validation can either increase defenses or lead to growth
