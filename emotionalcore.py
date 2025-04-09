@@ -1,4 +1,3 @@
-# emotionalcore.py
 class EmotionalCore:
     def __init__(self):
         # Core emotional dimensions (using more nuanced dimensions than typical models)
@@ -48,7 +47,13 @@ class EmotionalCore:
             "perfectionism": 0.8,
             "self_worth_contingency": 0.7  # Self-worth tied to achievement/status
         }
-        
+
+        # Add facade intensity (from my changes)
+        self.facade_intensity = 0.8  # Gap between internal and expressed emotions
+
+        # Add emotional state labels (from my changes)
+        self.emotional_state_labels = self._determine_emotional_state()
+
     def process_interaction(self, message, context):
         """Process user interaction and generate authentic emotional response"""
         # Step 1: Analyze the message for emotional content
@@ -77,9 +82,12 @@ class EmotionalCore:
         
         # Step 8: Update personality gradually based on significant experiences
         self._evolve_personality(emotional_impact)
+
+        # Step 9: Update facade intensity (from my changes)
+        self._update_facade_intensity()
         
-        # Step 9: Generate response guidance for dialogue generator
-        return self._generate_response_guidance()
+        # Step 10: Generate response guidance for dialogue generator
+        return self._generate_response_guidance(context)
     
     def _analyze_emotional_content(self, message):
         """Analyze the emotional impact of a message with psychological depth"""
@@ -91,8 +99,8 @@ class EmotionalCore:
         
         # Impact on vulnerability
         vulnerability_triggers = {
-            "increase": ["understand", "trust", "feel", "open", "sorry", "care", "love", "not alone"],
-            "decrease": ["whatever", "obviously", "stupid", "stop", "annoying"]
+            "increase": ["understand", "trust", "feel", "open", "sorry", "care"],
+            "decrease": ["whatever", "obviously", "stupid", "stop"]
         }
         for word in vulnerability_triggers["increase"]:
             if word in message_lower:
@@ -106,8 +114,8 @@ class EmotionalCore:
         
         # Impact on connection
         connection_triggers = {
-            "increase": ["together", "we", "us", "friend", "help", "here for you"],
-            "decrease": ["alone", "yourself", "your problem", "leave"]
+            "increase": ["together", "we", "us", "friend", "help"],
+            "decrease": ["alone", "yourself", "your problem"]
         }
         for word in connection_triggers["increase"]:
             if word in message_lower:
@@ -200,10 +208,24 @@ class EmotionalCore:
                 # Low connection triggers abandonment fear
                 self.internal_emotions["vulnerability"] += 0.15
                 self.internal_emotions["psychological_safety"] -= 0.1
+
+        # Add high-impact event override (from my changes)
+        if context.get("high_impact_event", False):
+            self.internal_emotions["connection"] = max(0.8, self.internal_emotions["connection"])
+            self.internal_emotions["vulnerability"] = max(0.9, self.internal_emotions["vulnerability"])
+            self.internal_emotions["autonomy"] = min(0.1, self.internal_emotions["autonomy"])
+            self.internal_emotions["validation"] = min(0.1, self.internal_emotions["validation"])
+            self.internal_emotions["psychological_safety"] = min(0.1, self.internal_emotions["psychological_safety"])
     
     def _evaluate_defenses(self):
         """Evaluate and activate psychological defense mechanisms"""
         self.active_defenses = []
+        
+        # Add check for "Opening Up" and "Authentic" states to deactivate defenses (from my changes)
+        emotional_state = self._determine_emotional_state()
+        if "Opening Up" in emotional_state and "Authentic" in emotional_state:
+            self.active_defenses = []
+            return
         
         # Check vulnerability threshold
         if self.internal_emotions["vulnerability"] > self.defense_activation:
@@ -354,20 +376,15 @@ class EmotionalCore:
     def _evolve_personality(self, emotional_impact):
         """Gradually evolve personality based on emotional experiences"""
         # Significant emotional experiences can shift personality traits
-        # That's what I thought, higher values = less chance to develop personality...
         intensity = sum(abs(val) for val in emotional_impact.values())
         
         if intensity > 0.6:
             # High intensity experiences have more impact
-            change_factor = 0.02  # Small incremental changes (First revision: Too small, does nothing)
-            # Even when talking about suicide, depression, self harm, it will not change, good because it doesn't
-            # trigger self care acts like IA usually do, bad because it could mean in harmful acts like
-            # minimizing too much acts like that, but I guess that's the point of Poppy after all...
+            change_factor = 0.02  # Small incremental changes
             
             # Vulnerability experiences increase emotional awareness
             if abs(emotional_impact["vulnerability"]) > 0.3:
                 self.personality["emotional_awareness"] += change_factor * 0.5
-                # Adding a bigger change factor for deeper conversations could be interesting...
             
             # Connection experiences increase empathy
             if emotional_impact["connection"] > 0.2:
@@ -378,15 +395,8 @@ class EmotionalCore:
                 self.personality["fear_of_vulnerability"] -= change_factor
             
             # Validation experiences affect pride and self-worth
-            if emotional_impact["validation"] < -0.3:
+            if emotional_impact["validation"] > 0.3:
                 # Positive validation reinforces contingent self-worth
-                    # Negative validation can either increase defenses or lead to growth
-                if self.internal_emotions["psychological_safety"] > 0.6:  # Corrected line
-                    # In safe environment, can lead to growth
-                    self.personality["authenticity"] += change_factor
-                else:
-                    # In unsafe environment, reinforces defenses
-                    self.personality["pride"] += change_factor
                 self.unconscious_patterns["self_worth_contingency"] += change_factor
             elif emotional_impact["validation"] < -0.3:
                 # Negative validation can either increase defenses or lead to growth
@@ -404,7 +414,20 @@ class EmotionalCore:
             for pattern in self.unconscious_patterns:
                 self.unconscious_patterns[pattern] = max(0.1, min(0.9, self.unconscious_patterns[pattern]))
     
-    def _generate_response_guidance(self):
+    # Add facade intensity update method (from my changes)
+    def _update_facade_intensity(self):
+        """Update the facade intensity based on the emotional state"""
+        emotional_state = self._determine_emotional_state()
+        if "Opening Up" in emotional_state and "Authentic" in emotional_state:
+            self.facade_intensity = max(0.1, self.facade_intensity - 0.4)  # Align internal and expressed emotions
+        elif "Opening Up" in emotional_state:
+            self.facade_intensity = max(0.2, self.facade_intensity - 0.2)
+        elif "Authentic" in emotional_state:
+            self.facade_intensity = max(0.3, self.facade_intensity - 0.1)
+        else:
+            self.facade_intensity = min(1.0, self.facade_intensity + 0.1)  # Increase if defenses are active
+
+    def _generate_response_guidance(self, context=None):
         """Generate guidance for the dialogue generator based on emotional state"""
         # Create a higher-level emotional state description
         emotional_state = self._determine_emotional_state()
@@ -413,8 +436,8 @@ class EmotionalCore:
         facade_intensity = sum(abs(self.internal_emotions[e] - self.expressed_emotions[e]) 
                               for e in self.internal_emotions) / len(self.internal_emotions)
         
-        # Determine attitude based on emotional state and defenses
-        attitude = self._determine_attitude()
+        # Determine attitude based on emotional state and defenses (updated with my changes)
+        attitude = self._determine_attitude(context)
         
         # Identify emotional conflicts (mixed feelings)
         conflicts = self._identify_emotional_conflicts()
@@ -422,8 +445,8 @@ class EmotionalCore:
         # Generate nonverbal cues based on emotional state
         nonverbals = self._generate_nonverbal_cues()
         
-        # Choose tone based on expressed emotions
-        tone = self._determine_tone()
+        # Choose tone based on expressed emotions (updated with my changes)
+        tone = self._determine_tone(context)
         
         # Relationship dynamics
         relationship = self._determine_relationship_dynamics()
@@ -477,8 +500,14 @@ class EmotionalCore:
             
         return states
     
-    def _determine_attitude(self):
-        """Determine attitude based on emotional state and defenses"""
+    def _determine_attitude(self, context=None):
+        """Determine attitude based on emotional state and defenses (updated with my changes)"""
+        emotional_state = self._determine_emotional_state()
+
+        # Override for high-impact events (e.g., a character's death)
+        if context and context.get("high_impact_event", False):
+            return "Grieving"
+
         if self.active_defenses:
             defense_types = [d["type"] for d in self.active_defenses]
             
@@ -491,14 +520,18 @@ class EmotionalCore:
             if "compensation" in defense_types:
                 return "Boastful"
                 
-        # No active defenses, base on emotions
-        if self.expressed_emotions["vulnerability"] < 0.3 and self.expressed_emotions["connection"] < 0.4:
+        # No active defenses, base on emotions (updated mapping)
+        if "Opening Up" in emotional_state and "Authentic" in emotional_state:
+            return "Vulnerable"
+        elif "Connected" in emotional_state and "Powerless" in emotional_state:
+            return "Desperate"
+        elif "Invalidated" in emotional_state:
+            return "Guilty"
+        elif "Isolated" in emotional_state and "In Control" in emotional_state:
             return "Cold"
-        if self.expressed_emotions["validation"] < 0.3:
-            return "Irritable"
-        if self.expressed_emotions["connection"] > 0.7:
+        elif self.expressed_emotions["connection"] > 0.7:
             return "Warm"
-        if self.expressed_emotions["authenticity"] > 0.7:
+        elif self.expressed_emotions["authenticity"] > 0.7:
             return "Genuine"
             
         # Default
@@ -563,18 +596,27 @@ class EmotionalCore:
             
         return cues[:3]  # Limit to top 3 cues
     
-    def _determine_tone(self):
-        """Determine verbal tone based on expressed emotions"""
-        if self.expressed_emotions["connection"] < 0.3 and self.expressed_emotions["validation"] < 0.4:
+    def _determine_tone(self, context=None):
+        """Determine verbal tone based on expressed emotions (updated with my changes)"""
+        emotional_state = self._determine_emotional_state()
+
+        # Override for high-impact events (e.g., a character's death)
+        if context and context.get("high_impact_event", False):
+            return "Desperate"
+
+        if "Opening Up" in emotional_state and "Authentic" in emotional_state:
+            return "Earnest"
+        elif "Connected" in emotional_state and "Powerless" in emotional_state:
+            return "Desperate"
+        elif "Invalidated" in emotional_state:
+            return "Remorseful"
+        elif self.expressed_emotions["connection"] < 0.3 and self.expressed_emotions["validation"] < 0.4:
             return "Dismissive"
-            
-        if self.expressed_emotions["vulnerability"] < 0.2 and self.expressed_emotions["autonomy"] > 0.7:
+        elif self.expressed_emotions["vulnerability"] < 0.2 and self.expressed_emotions["autonomy"] > 0.7:
             return "Condescending"
-            
-        if self.expressed_emotions["connection"] > 0.6 and self.expressed_emotions["vulnerability"] > 0.5:
+        elif self.expressed_emotions["connection"] > 0.6 and self.expressed_emotions["vulnerability"] > 0.5:
             return "Genuine"
-            
-        if len(self.active_defenses) > 0:
+        elif len(self.active_defenses) > 0:
             return "Guarded"
             
         # Default
