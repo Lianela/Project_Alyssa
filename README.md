@@ -18,6 +18,9 @@ The main script had to be changed to use the new logic.py and generator.py modul
 
 Now with this we ensure a proper usage of memories and prevent lack of updates.
 
+after some time i was checking something i added the emotionalcore lol
+basically it should handle all the things to create a more realistic person
+
 ✦•······················•✦•······················•✦
 
 ── ⟢ ・⸝⸝ Next:  
