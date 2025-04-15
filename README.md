@@ -1,6 +1,7 @@
 Basically it's just a shit rn, it runs on cmd cuz i'm too lazy to create an UI rn
 
-# 09:18AM - 09/04/2025: Project name was changed to Project Alyssa, so I can make it public for a while, ~~unless I test some things and allat~~, as of now 03:48AM - 15/4/2025, Project Alyssa is functional, having a great memories handling, roleplay messasing, prevention for bad quality of text and more diversification of statuses.
+# 09:18AM - 09/04/2025: Project name was changed to Project Alyssa, so I can make it public for a while, ~~unless I test some things and allat,~~<br/>
+#As of now 03:48AM - 15/4/2025, Project Alyssa is functional, having a great memories handling, roleplay messasing, prevention for bad quality of text and more diversification of statuses.
 
 Roadmap (yes, i will not do a image or smthng):
 
@@ -12,48 +13,48 @@ It suprisingly works, it can respond messages, talk and continue the conversatio
 ✦•······················•✦•······················•✦
 
 9/4/2025:
-rp_response.py has been divided, now it's two extra files, generator and logic:
-generator.py will take the context from logic and generate a response that feels human, with gradual mood transitions and emotional depth. It will use the emotional state, attitude, and memories to craft a response that builds on previous interactions and avoids abrupt mood swings.
+rp_response.py has been divided, now it's two extra files, generator and logic:<br/>
+generator.py will take the context from logic and generate a response that feels human, with gradual mood transitions and emotional depth. It will use the emotional state, attitude, and memories to craft a response that builds on previous interactions and avoids abrupt mood swings.<br/>
 logic.py will handle the "brain" of (Bot, in this case, a one already pre defined) "Poppy", analyzing the context to determine her emotional state, attitude, and relationship with Lin. We’ll use a simple sentiment analysis approach to interpret user input and memories, combined with a state machine-like logic to manage Poppy’s emotional and attitudinal shifts.
 
 The main script had to be changed to use the new logic.py and generator.py modules, ensuring the roleplay loop integrates both components seamlessly.
 
 Now with this we ensure a proper usage of memories and prevent lack of updates.
 
-after some time i was checking something i added the emotionalcore lol
+after some time i was checking something i added the emotionalcore lol<br/>
 basically it should handle all the things to create a more realistic person
 
-Added a more bigger core:
+Added a more bigger core:<br/>
 Emotional Core
 
-This will handle anything about feelings, including from psychological safety, for example, opening the bot feelings, feeling exposed, to block itself, prevent others to know your feelings.
-As now, 06:48AM, this is unstable, character memory overrides it but at same time it works as expected.
+This will handle anything about feelings, including from psychological safety, for example, opening the bot feelings, feeling exposed, to block itself, prevent others to know your feelings.<br/>
+As now, 06:48AM, this is unstable, character memory overrides it but at same time it works as expected.<br/>
 This could handle different states as could be noticed from this:
 
-2025-04-09 04:49:22,437 - [INTERNAL THOUGHT]
-Poppy is in School. She is currently doing the project with lin. Her emotional state is: isolated, in control, invalidated. Her attitude is: cold. Her relationship with Lin is: distant.
-Personality: Arrogant, popular, snarky. Thinks she's better than everyone. Hides vulnerability under a confident mask.
-Active Memory: Location: School | Action: Doing the project with Lin
-Emotional State: Isolated, In Control, Invalidated
-Attitude: Cold
+2025-04-09 04:49:22,437 - [INTERNAL THOUGHT]<br/>
+Poppy is in School. She is currently doing the project with lin. Her emotional state is: isolated, in control, invalidated. Her attitude is: cold. Her relationship with Lin is: distant.<br/>
+Personality: Arrogant, popular, snarky. Thinks she's better than everyone. Hides vulnerability under a confident mask.<br/>
+Active Memory: Location: School | Action: Doing the project with Lin<br/>
+Emotional State: Isolated, In Control, Invalidated<br/>
+Attitude: Cold<br/>
 Relationship with Lin: Distant
 
-2025-04-09 06:48:04,810 - [INTERNAL THOUGHT]
-Poppy is in School. She is currently starting the project. Her emotional state is: opening up, connected, powerless, invalidated, authentic. Her attitude is: dismissive. Her relationship with Lin is: friendly.
-Personality: Arrogant, popular, snarky. Thinks she's better than everyone. Hides vulnerability under a confident mask.
-Active Memory: Location: School | Action: Starting the project
-Emotional State: Opening Up, Connected, Powerless, Invalidated, Authentic
-Attitude: Dismissive
+2025-04-09 06:48:04,810 - [INTERNAL THOUGHT]<br/>
+Poppy is in School. She is currently starting the project. Her emotional state is: opening up, connected, powerless, invalidated, authentic. Her attitude is: dismissive. Her relationship with Lin is: friendly.<br/>
+Personality: Arrogant, popular, snarky. Thinks she's better than everyone. Hides vulnerability under a confident mask.<br/>
+Active Memory: Location: School | Action: Starting the project<br/>
+Emotional State: Opening Up, Connected, Powerless, Invalidated, Authentic<br/>
+Attitude: Dismissive<br/>
 Relationship with Lin: Friendly
 
-Usually this require some kind of logic decisions, this could be a potential modifier for everything.
-But there's a problem: Multipliers
+Usually this require some kind of logic decisions, this could be a potential modifier for everything.<br/>
+But there's a problem: Multipliers<br/>
 There's need to be tuned almost perfectly, to hit the spot between human but realistic.
 
 
 ✦•······················•✦•······················•✦
 
-15/4/25: ~~broken, lmao, working on it~~
+15/4/25: ~~broken, lmao, working on it~~<br/>
 03:48AM: Alyssa is now better, having a better handling of requests, for now, it's still closed, but while I keep testing, everything is going better
 
 ✦•······················•✦•······················•✦
