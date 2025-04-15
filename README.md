@@ -1,6 +1,6 @@
 Basically it's just a shit rn, it runs on cmd cuz i'm too lazy to create an UI rn
 
-# 09:18AM - 09/04/2025: Project name was changed to Project Alyssa, so I can make it public for a while, unless I test some things and allat
+# 09:18AM - 09/04/2025: Project name was changed to Project Alyssa, so I can make it public for a while, ~~unless I test some things and allat~~, as of now 03:48AM - 15/4/2025, Project Alyssa is functional, having a great memories handling, roleplay messasing, prevention for bad quality of text and more diversification of statuses.
 
 Roadmap (yes, i will not do a image or smthng):
 
@@ -54,6 +54,7 @@ There's need to be tuned almost perfectly, to hit the spot between human but rea
 ✦•······················•✦•······················•✦
 
 15/4/25: ~~broken, lmao, working on it~~
+03:48AM: Alyssa is now better, having a better handling of requests, for now, it's still closed, but while I keep testing, everything is going better
 
 ✦•······················•✦•······················•✦
 
