@@ -53,6 +53,10 @@ There's need to be tuned almost perfectly, to hit the spot between human but rea
 
 ✦•······················•✦•······················•✦
 
+15/4/25: broken, lmao, working on it
+
+✦•······················•✦•······················•✦
+
 ── ⟢ ・⸝⸝ Next:  
 Make use of 4 states of memories:  
 ┈➤ Dynamic  
