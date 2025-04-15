@@ -1,7 +1,7 @@
 Basically it's just a shit rn, it runs on cmd cuz i'm too lazy to create an UI rn
 
-# 09:18AM - 09/04/2025: Project name was changed to Project Alyssa, so I can make it public for a while, ~~unless I test some things and allat,~~<br/>
-# As of now 03:48AM - 15/4/2025, Project Alyssa is functional, having a great memories handling, roleplay messasing, prevention for bad quality of text and more diversification of statuses.
+# 09:18AM - 09/04/2025: Project name was changed to Project Alyssa, so I can make it public for a while, ~~unless I test some things and allat~~<br/>
+# As of now 03:48AM - 15/4/2025, Project Alyssa is functional, having a great memories handling, roleplay messaging, prevention for bad quality of text and more diversification of statuses.
 
 Roadmap (yes, i will not do a image or smthng):
 
