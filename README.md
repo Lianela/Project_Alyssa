@@ -56,6 +56,7 @@ There's need to be tuned almost perfectly, to hit the spot between human but rea
 
 15/4/25: ~~broken, lmao, working on it~~<br/>
 03:48AM: Alyssa is now better, having a better handling of requests, for now, it's still closed, but while I keep testing, everything is going better
+7PM: Alyssa... Uh... Took a big jump, the emotionalcore it's just... huge, I don't have any words to describe it, it looks so... wrong, to have a thing this inmense, so, yeah, I will see what I do
 
 ✦•······················•✦•······················•✦
 
