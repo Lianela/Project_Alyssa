@@ -108,6 +108,21 @@ Using Llama 4 from Meta it helps to balance this, while better AI exist like **G
 much better quality, their API's could be expensive, but Llama offers a free and stable LLM and tuning it to make roleplay better it's the perfect example to balance price,
 power and usage.
 
+# ── ⟢ ・⸝⸝ The Emotional Core:
+
+When it comes to human feelings, AIs today struggle to feel the same feelings as humans, whether it's sadness, fear, trauma, happiness, joy, excitement, hate, anger, among many others, since this is truly too complicated, not only psychologically, but in the words of Gemini Pro itself:<br/>
+"The module attempts to simulate an enormous number of very deep and interconnected psychological concepts (base emotions, personality, defenses, trauma, regulation, emotional memory, attachment, growth, fatigue, sleep, internal conflicts, identity...). It's like trying to fit an almost academic psychological simulation into a script."<br/>
+ChatGPT said, "because what you're trying to build isn't a bot—you're trying to create a simulated emotional consciousness.
+
+And that, although not biological, functions similarly to a human being, which makes it extremely complex."
+
+What it's truly going on here is extreme complexity of calculations, coding, understanding, connections between memories, and in simple words: A real brain.
+
+This could negatively affect different kinds of experiences, because with this, the bot wouldn't be a simple machine answering and role-playing, it would be some kind of real human behind it, experiencing feelings, feeling time passing by, remembering things, experiencing different states of feeling, being affected by the environment, people, their own minds.<br/>
+The code itself gives the freedom to be just how a human it really is.
+
+It was already really difficult to create memories because of the complexity involved in making them all work, but now, to make everything work through real, human emotions, well, it will be almost impossible, but not impossible to create.
+
 · · ─────── ·𖥸· ─────── · ·
 
 # Q/A:
@@ -130,4 +145,4 @@ times, aside from being free, it was the better option, unless I be able to get 
 
 ───  ⋅ ∙ ∘ ☽ ༓ ☾ ∘ ⋅ ⋅  ───
 
-# I will keep updating this project, it's been a pleasure to use apps for roleplay like Dippy AI, but until someone decides to take a new step, nothing will change.
+# I will keep updating this project, it's been a pleasure to use apps for roleplay like Dippy AI, but until someone decides to take a new step, nothing will change, hope some day, I will be able to finish this and see being used in other places.
