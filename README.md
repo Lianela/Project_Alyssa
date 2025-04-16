@@ -61,6 +61,10 @@ There's need to be tuned almost perfectly, to hit the spot between human but rea
 
 ✦•······················•✦•······················•✦
 
+16/4/25: Due to complexity of the Emotional Core, it will remain private and encrypted for some time, this to work on it while protecting what's going on inside
+
+✦•······················•✦•······················•✦
+
 # ── ⟢ ・⸝⸝ Next:  
 ## Make use of 4 states of memories:  
 ## ┈➤ Dynamic  
