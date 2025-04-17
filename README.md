@@ -73,7 +73,7 @@ Poppy: *Glances up briefly at Lin, then quickly looks away, fidgeting with her s
 We're supposed to meet with Ms. Thompson at 3, so we should probably get our act together and figure out what we're going to say.
 
 Second response after some messages:<br/>
-Poppy: *Glances at the clock on the library wall, her eyes darting quickly back to Lin, still holding the pencil tightly as if it's a lifeline, while trying to maintain a composed expression.*
+Poppy: *Glances at the clock on the library wall, her eyes darting quickly back to Lin, still holding the pencil tightly as if it's a lifeline, while trying to maintain a composed expression.*<br/>
 It's 2:55, we need to get our act together, Ms. Thompson is going to be here in five minutes.<br/>
 
 Bot is aware for what time it is, making it better for different things, so, I want to talk about something:
