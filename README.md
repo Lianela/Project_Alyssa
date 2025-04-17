@@ -89,6 +89,8 @@ This was a extremely difficult task, making the emotional core a huge beast for 
 
 For now, the bot is totally functional, but the complex system needs to be improved and pushed to the limit.
 
+### Something funny happened here, the bot was able to change itself some temperature and max tokens, so this could lead a potential issue but at same time it's reaching great capabilities lmao
+
 ✦•······················•✦•······················•✦
 
 # ── ⟢ ・⸝⸝ Next:  
