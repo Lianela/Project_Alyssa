@@ -15,7 +15,7 @@ class RPDialogueGenerator:
     def __init__(self):
         self.api_url = "https://openrouter.ai/api/v1/chat/completions"
         # TODO: Move API Key to environment variable or secure config
-        self.api_key = "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"
+        self.api_key = "API KEY HERE"
         self.used_phrases = set()
         self.phrase_alternatives = {
              "not making a coherent argument": ["Your logic’s all over the place", "That doesn’t add up at all", "You’re not making any sense", "What are you even getting at?"],
