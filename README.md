@@ -93,6 +93,12 @@ For now, the bot is totally functional, but the complex system needs to be impro
 
 ✦•······················•✦•······················•✦
 
+17/4/25: All emotionalcore files has been deleted, this because it lacks of functionality, it doesn't even make sense to use it because all the new core has been rewritten so it's not even useful for anything anymore
+
+Also, I created a local version, to keep testing it while my keys are limited.
+
+✦•······················•✦•······················•✦
+
 # ── ⟢ ・⸝⸝ Next:  
 ## Make use of 4 states of memories:  
 ## ┈➤ Dynamic  
