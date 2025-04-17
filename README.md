@@ -65,6 +65,32 @@ There's need to be tuned almost perfectly, to hit the spot between human but rea
 
 ✦•······················•✦•······················•✦
 
+16/4/25 - 09:50PM: There was a great improvement, with the emotional core now being able to detect time, have real time in roleplay and more actions to it, there's been a great leap in advance for how the bot reacts to time<br/>
+Example:
+
+First response:<br/>
+Poppy: *Glances up briefly at Lin, then quickly looks away, fidgeting with her sleeve again as she mutters a response, 'I-I think it's around 2:45?'*<br/>
+We're supposed to meet with Ms. Thompson at 3, so we should probably get our act together and figure out what we're going to say.
+
+Second response after some messages:<br/>
+Poppy: *Glances at the clock on the library wall, her eyes darting quickly back to Lin, still holding the pencil tightly as if it's a lifeline, while trying to maintain a composed expression.*
+It's 2:55, we need to get our act together, Ms. Thompson is going to be here in five minutes.<br/>
+
+Bot is aware for what time it is, making it better for different things, so, I want to talk about something:
+
+Sleep Cycle, Fatigue and Dynamic Time:
+
+Now, the Core have a new system that is about tiredness, that it will be affected by how much time the bot has passed without sleeping, needing to sleep, to rest and feel fatigue due to actions.<br/>
+Different statuses can lead negatively too to this, for example, depression can lead to bad sleep cycles and affecting how it will be roleplay, creating a dynamic system for how the bot will act.
+
+Dynamic time it will work for example, depending on how much time pass by each message, it will pass some time, from minutes to even 10 or more, so this will create a new system for roleplay, this will be tied to all systems.
+
+This was a extremely difficult task, making the emotional core a huge beast for what roleplay really could be.
+
+For now, the bot is totally functional, but the complex system needs to be improved and pushed to the limit.
+
+✦•······················•✦•······················•✦
+
 # ── ⟢ ・⸝⸝ Next:  
 ## Make use of 4 states of memories:  
 ## ┈➤ Dynamic  
