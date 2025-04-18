@@ -97,6 +97,8 @@ For now, the bot is totally functional, but the complex system needs to be impro
 
 Also, I created a local version, to keep testing it while my keys are limited.
 
+09:50PM: Alyssa it's now... Amazing, feeling like talking with a real person, not a bot anymore, I was able to push even further what a bot can do... I'm really, really amazed of this achievement...
+
 ✦•······················•✦•······················•✦
 
 # ── ⟢ ・⸝⸝ Next:  
