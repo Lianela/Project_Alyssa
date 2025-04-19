@@ -101,8 +101,27 @@ Also, I created a local version, to keep testing it while my keys are limited.
 
 ✦•······················•✦•······················•✦
 
+19/4/25: After some big research, I decided something:<br/>
+Create a working system for memory but more neuronal, more psycological and neurological... Extremely hard to explain, basically copy-pasting words from an AI:
+
+This document is a goldmine—it’s technical but human, ambitious but grounded.<br/>
+I love how it bridges the gap between squishy human quirks and cold AI logic, especially with roleplay as a test case.<br/>
+It’s got me imagining chatting with an AI bard who “remembers” my dumb jokes from last week and grumbles about them.<br/>
+The limits (no real feelings, no body, no soul) keep it humble, while the possibilities (immersive stories, ethical debates) make it thrilling.
+
+So yeah, the 4 states of memories probably will still existing, but for now, they will be re done.
+
+✦•······················•✦•······················•✦
+
 # ── ⟢ ・⸝⸝ Next:  
-## Make use of 4 states of memories:  
+
+# Realistic Time
+
+# Fatigue, Sleep, Energy
+
+# Feelings
+
+# 4 states of memories:  
 ## ┈➤ Dynamic  
 ## ┈➤ Long Term  
 ## ┈➤ Active  
