@@ -3,7 +3,8 @@ Basically it's just a shit rn, it runs on cmd cuz i'm too lazy to create an UI r
 # 09:18AM - 09/04/2025: Project name was changed to Project Alyssa, so I can make it public for a while, ~~unless I test some things and allat~~<br/>
 # As of now 03:48AM - 15/4/2025, Project Alyssa is functional, having a great memories handling, roleplay messaging, prevention for bad quality of text and more diversification of statuses.
 
-Roadmap (yes, i will not do a image or smthng):
+~~Roadmap (yes, i will not do a image or smthng):~~ <br/>
+This will be a changelog, also, a roadmap will be unavailable for the time
 
 ✦•······················•✦•······················•✦
 
@@ -110,6 +111,8 @@ It’s got me imagining chatting with an AI bard who “remembers” my dumb jok
 The limits (no real feelings, no body, no soul) keep it humble, while the possibilities (immersive stories, ethical debates) make it thrilling.
 
 So yeah, the 4 states of memories probably will still existing, but for now, they will be re done.
+
+Alyssa will be public soon.
 
 ✦•······················•✦•······················•✦
 
